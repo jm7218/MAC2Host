@@ -43,7 +43,7 @@ DEVICE_NAME=MyDevice
 DEVICE_MAC=aa:bb:cc:dd:ee:ff
 
 # Get the directory of the current script
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
 # Get the IP address from the network scanner
 ip_address=$(python3 "$SCRIPT_DIR/find_device.py" $MY_NETWORK_INTERFACE --quiet --mac $DEVICE_MAC)
